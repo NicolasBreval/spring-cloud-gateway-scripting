@@ -1,10 +1,10 @@
 package org.nbreval.spring.cloud.gateway.scripting.core.filter;
 
 import java.util.Map;
-import java.util.function.BiFunction;
 import org.nbreval.spring.cloud.gateway.scripting.core.config.ScriptingFilterConfig;
 import org.nbreval.spring.cloud.gateway.scripting.core.exception.HttpResponseWrapperException;
 import org.nbreval.spring.cloud.gateway.scripting.core.script.ScriptManager;
+import org.nbreval.spring.cloud.gateway.scripting.core.util.function.ThrowableBiConsumer;
 import org.nbreval.spring.cloud.gateway.scripting.core.util.http.RequestWrapper;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -33,11 +33,12 @@ public abstract class AbstractScriptingFilter<C extends ScriptingFilterConfig>
                 Map.of(
                     "request",
                     wrappedRequest,
-                    "break",
-                    (BiFunction<Integer, String, HttpResponseWrapperException>)
-                        (code, message) ->
-                            new HttpResponseWrapperException(
-                                HttpStatus.valueOf(code), message, null)));
+                    "response",
+                    (ThrowableBiConsumer<Integer, String, HttpResponseWrapperException>)
+                        (code, message) -> {
+                          throw new HttpResponseWrapperException(
+                              HttpStatus.valueOf(code), message, null);
+                        }));
 
         if (result instanceof RequestWrapper modifiedWrappedRequest) {
           return chain.filter(modifiedWrappedRequest.murateExchange(exchange));
