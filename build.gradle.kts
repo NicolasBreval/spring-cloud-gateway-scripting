@@ -18,6 +18,7 @@ subprojects {
     apply(plugin = "org.gradle.java-library")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "com.diffplug.spotless")
+    apply(plugin = "maven-publish")
 
     java {
         toolchain {
@@ -51,30 +52,6 @@ subprojects {
             
             trimTrailingWhitespace()
             endWithNewline()
-        }
-    }
-}
-
-publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/NicolasBreval/spring-cloud-gateway-scripting")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-            
-            pom {
-                name.set("spring-cloud-gateway-scripting")
-                description.set("Spring Cloud Gateway filter to modify requests using scripts.")
-                url.set("https://github.com/NicolasBreval/spring-cloud-gateway-scripting")
-            }
         }
     }
 }
