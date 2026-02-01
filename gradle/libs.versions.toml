@@ -12,6 +12,7 @@ googleJavaFormat = "1.33.0"
 spring-framework-bom = { group = "org.springframework", name = "spring-framework-bom", version.ref = "springFramework" }
 spring-cloud-bom = { group = "org.springframework.cloud", name = "spring-cloud-dependencies", version.ref = "springCloud" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
+junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junit" }
 assertj-core = { group = "org.assertj", name = "assertj-core", version.ref = "assertj" }
 reactor-test = { group = "io.projectreactor", name = "reactor-test", version.ref = "reactor" }
 nimbus-jose-jwt = { group = "com.nimbusds", name = "nimbus-jose-jwt", version.ref = "nimbusJoseJwt" }

@@ -33,6 +33,9 @@ subprojects {
         testImplementation(rootProject.libs.junit.jupiter)
         testImplementation(rootProject.libs.reactor.test)
         testImplementation(rootProject.libs.assertj.core)
+        testImplementation(rootProject.libs.nimbus.jose.jwt)
+
+        testRuntimeOnly(rootProject.libs.junit.platform.launcher)
     }
 
     tasks.withType<Test> {
