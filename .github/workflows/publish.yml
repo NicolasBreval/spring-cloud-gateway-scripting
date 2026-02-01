@@ -9,6 +9,7 @@ jobs:
     uses: ./.github/workflows/tests.yml
 
   publish:
+    needs: call-test-workflow
     runs-on: ubuntu-latest
     permissions:
       contents: read
