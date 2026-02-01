@@ -2,6 +2,7 @@ plugins {
     `java-library`
     alias(libs.plugins.spring.deps.management)
     alias(libs.plugins.spotless)
+    `maven-publish`
 }
 
 allprojects {
@@ -50,6 +51,30 @@ subprojects {
             
             trimTrailingWhitespace()
             endWithNewline()
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/NicolasBreval/spring-cloud-gateway-scripting")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            
+            pom {
+                name.set("spring-cloud-gateway-scripting")
+                description.set("Spring Cloud Gateway filter to modify requests using scripts.")
+                url.set("https://github.com/NicolasBreval/spring-cloud-gateway-scripting")
+            }
         }
     }
 }
