@@ -25,6 +25,6 @@ jobs:
           server-id: github
       
       - name: Publish with Gradle
-        run: ./gradlew publish
+        run: ./gradlew clean publish --no-build-cache --rerun-tasks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
