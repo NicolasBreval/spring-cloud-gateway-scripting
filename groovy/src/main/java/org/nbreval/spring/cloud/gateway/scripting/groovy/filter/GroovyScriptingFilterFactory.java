@@ -12,8 +12,7 @@ import org.springframework.http.HttpStatus;
  * Implementation of {@link AbstractScriptingFilterFactory} with a {@link ScriptManager} which
  * process requests using Groovy language.
  */
-public class GroovyScriptingFilterFactory
-    extends AbstractScriptingFilterFactory<ScriptingFilterConfig> {
+public class GroovyScriptingFilterFactory extends AbstractScriptingFilterFactory {
 
   /**
    * Instance of {@link GroovyScriptManager}, stored to don't create it each time that the manager
