@@ -17,11 +17,15 @@ import reactor.core.publisher.Mono;
  * request and process it using a {@link ScriptManager}, then, mutates the exchange with the
  * modified request obtained as script result.
  */
-public abstract class AbstractScriptingFilterFactory<C extends ScriptingFilterConfig>
-    extends AbstractGatewayFilterFactory<C> {
+public abstract class AbstractScriptingFilterFactory
+    extends AbstractGatewayFilterFactory<ScriptingFilterConfig> {
+
+  public AbstractScriptingFilterFactory() {
+    super(ScriptingFilterConfig.class);
+  }
 
   @Override
-  public GatewayFilter apply(C config) {
+  public GatewayFilter apply(ScriptingFilterConfig config) {
     return (exchange, chain) -> {
       try {
         var wrappedRequest = new RequestWrapper(exchange.getRequest());
@@ -65,5 +69,6 @@ public abstract class AbstractScriptingFilterFactory<C extends ScriptingFilterCo
    * @return The {@link ScriptManager} generated based on filter configuration.
    * @throws HttpResponseWrapperException If any error occurs during script manager generation.
    */
-  protected abstract ScriptManager getScriptManager(C config) throws HttpResponseWrapperException;
+  protected abstract ScriptManager getScriptManager(ScriptingFilterConfig config)
+      throws HttpResponseWrapperException;
 }
