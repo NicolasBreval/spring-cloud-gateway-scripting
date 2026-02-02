@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.nbreval.spring.cloud.gateway.scripting.core.config.ScriptingFilterConfig;
-import org.nbreval.spring.cloud.gateway.scripting.groovy.filter.GroovyScriptingFilter;
+import org.nbreval.spring.cloud.gateway.scripting.groovy.filter.GroovyScriptingFilterFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
@@ -15,7 +15,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testAddQueryParam() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -39,7 +39,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testAddMultiValuedQueryParams() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -63,7 +63,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testSetQueryParam() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -87,7 +87,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testSetMultiValuedQueryParam() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -111,7 +111,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testRemoveQueryParam() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -135,7 +135,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testRemoveMultiValuedQueryParam() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -159,7 +159,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testAddQueryParamsKeepsOriginalQueryParams() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -185,7 +185,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testSetQueryParamKeepsOriginalQueryParams() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -211,7 +211,7 @@ public class TestQueryParamsOperations {
 
   @Test
   void testRemoveQueryParamKeepsOriginalQueryParams() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """

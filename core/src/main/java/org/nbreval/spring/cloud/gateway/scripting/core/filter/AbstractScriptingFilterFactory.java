@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
  * request and process it using a {@link ScriptManager}, then, mutates the exchange with the
  * modified request obtained as script result.
  */
-public abstract class AbstractScriptingFilter<C extends ScriptingFilterConfig>
+public abstract class AbstractScriptingFilterFactory<C extends ScriptingFilterConfig>
     extends AbstractGatewayFilterFactory<C> {
 
   @Override

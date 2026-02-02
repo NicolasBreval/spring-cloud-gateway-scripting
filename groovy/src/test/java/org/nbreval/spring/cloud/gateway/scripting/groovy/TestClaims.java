@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.nbreval.spring.cloud.gateway.scripting.core.config.ScriptingFilterConfig;
-import org.nbreval.spring.cloud.gateway.scripting.groovy.filter.GroovyScriptingFilter;
+import org.nbreval.spring.cloud.gateway.scripting.groovy.filter.GroovyScriptingFilterFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
@@ -22,7 +22,7 @@ public class TestClaims {
 
   @Test
   void testDirectClaim() throws JOSEException {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -53,7 +53,7 @@ public class TestClaims {
 
   @Test
   void testMultiLevelClaim() throws JOSEException {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -84,7 +84,7 @@ public class TestClaims {
 
   @Test
   void testMultiMultiLevelClaim() throws JOSEException {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
@@ -115,7 +115,7 @@ public class TestClaims {
 
   @Test
   void testMultiLevelArrayClaim() throws JOSEException {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """

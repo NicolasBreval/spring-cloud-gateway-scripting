@@ -6,7 +6,7 @@ import org.nbreval.spring.cloud.gateway.scripting.core.util.validation.PathValid
 
 /**
  * Configuration required for {@link
- * org.nbreval.spring.cloud.gateway.scripting.core.filter.AbstractScriptingFilter}
+ * org.nbreval.spring.cloud.gateway.scripting.core.filter.AbstractScriptingFilterFactory}
  */
 public class ScriptingFilterConfig {
 

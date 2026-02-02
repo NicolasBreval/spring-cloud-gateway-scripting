@@ -2,7 +2,7 @@ package org.nbreval.spring.cloud.gateway.scripting.groovy;
 
 import org.junit.jupiter.api.Test;
 import org.nbreval.spring.cloud.gateway.scripting.core.config.ScriptingFilterConfig;
-import org.nbreval.spring.cloud.gateway.scripting.groovy.filter.GroovyScriptingFilter;
+import org.nbreval.spring.cloud.gateway.scripting.groovy.filter.GroovyScriptingFilterFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
@@ -14,7 +14,7 @@ public class TestResponse {
 
   @Test
   void test401Response() {
-    var filterFactory = new GroovyScriptingFilter();
+    var filterFactory = new GroovyScriptingFilterFactory();
     var filterConfig =
         new ScriptingFilterConfig(
             """
