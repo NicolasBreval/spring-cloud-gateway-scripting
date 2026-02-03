@@ -29,7 +29,8 @@ subprojects {
     dependencies {
         api(platform(rootProject.libs.spring.framework.bom))
         api(platform(rootProject.libs.spring.cloud.bom))
-        api("org.springframework.cloud:spring-cloud-starter-gateway")
+        api("org.springframework.cloud:spring-cloud-gateway-server")
+        api("org.springframework:spring-webflux")
 
         testImplementation("org.springframework:spring-test")
         testImplementation(rootProject.libs.junit.jupiter)
