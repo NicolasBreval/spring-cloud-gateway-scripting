@@ -1,5 +1,7 @@
 package org.nbreval.spring.cloud.gateway.scripting.core.filter;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import org.nbreval.spring.cloud.gateway.scripting.core.config.ScriptingFilterConfig;
 import org.nbreval.spring.cloud.gateway.scripting.core.exception.HttpResponseWrapperException;
@@ -60,6 +62,11 @@ public abstract class AbstractScriptingFilterFactory
                 HttpStatus.INTERNAL_SERVER_ERROR, "Error processing request", e));
       }
     };
+  }
+
+  @Override
+  public List<String> shortcutFieldOrder() {
+    return Collections.singletonList("scriptOrPath");
   }
 
   /**
