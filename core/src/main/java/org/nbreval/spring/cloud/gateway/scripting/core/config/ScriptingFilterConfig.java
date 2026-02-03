@@ -28,4 +28,8 @@ public class ScriptingFilterConfig {
       return scriptOrPath;
     }
   }
+
+  public void setScriptOrPath(String scriptOrPath) {
+    this.scriptOrPath = scriptOrPath;
+  }
 }
