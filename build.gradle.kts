@@ -7,7 +7,7 @@ plugins {
 
 allprojects {
     group = "org.nbreval.spring.cloud.gateway.scripting"
-    version = "1.2.0-SNAPSHOT"
+    version = "1.2.0"
 
     repositories {
         mavenCentral()
